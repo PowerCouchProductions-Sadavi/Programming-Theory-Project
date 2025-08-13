@@ -1,18 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
-public class Cat : Animal
+public class Cat : Animal //INHERITANCE
 {
-    protected override string species { get; set; } = "Cat";
-
-    public override IEnumerator Talk()
+    protected override void Start() //POLYMORPHISM
     {
-        speakText.text = "Meow!";
-        yield return new WaitForSeconds(3);
-        speakText.text = "";
-    }
-    protected override void Start()
-    {
+        species = "Cat";
+        movementSpeed = 3.0f;
+        speech = "I'm a cat, meow!";
         base.Start();
     }
 }

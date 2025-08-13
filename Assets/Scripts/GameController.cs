@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -54,10 +55,13 @@ public class GameController : MonoBehaviour
             hasInitialized = true;   // Set the flag to true to prevent future calls
         }
     }
-    private void SetNames()
+    private void SetNames() //ASTRACTION
     {
-        GameObject.Find("Cat").gameObject.name = CatName;
-        GameObject.Find("Dog").gameObject.name = DogName;
+        GameObject.Find("CatParent").GetComponentInChildren<TMP_Text>().text = CatName;
+        GameObject.Find("DogParent").GetComponentInChildren<TMP_Text>().text = DogName;
+
+        GameObject.Find("CatParent").GetComponentInChildren<Cat>().petName = CatName;
+        GameObject.Find("DogParent").GetComponentInChildren<Dog>().petName = DogName;
     }
 
 }

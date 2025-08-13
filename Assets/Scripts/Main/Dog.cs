@@ -1,18 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Windows.Speech;
 
-public class Dog : Animal
+public class Dog : Animal //INHERITANCE
 {
-    protected override string species { get; set; } = "Dog";
-
-    public override IEnumerator Talk()
+    protected override void Start() //POLYMORPHISM
     {
-        speakText.text = "Bark!";
-        yield return new WaitForSeconds(3);
-        speakText.text = "";
-    }
-    protected override void Start()
-    {
+        species = "Dog";
+        movementSpeed = 5.0f;
+        speech = "I'm a dog, Woof!";
         base.Start();
     }
 }
